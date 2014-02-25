@@ -1,0 +1,10 @@
+<h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+
+
+<% unless user_signed_in? -%>
+    <p><%= link_to 'Sign up as User', new_user_registration_path %></p>
+    <p><%= link_to 'Sign in as User', new_user_session_path %></p>
+
+
+<% end -%>
