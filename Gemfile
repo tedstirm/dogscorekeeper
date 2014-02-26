@@ -38,6 +38,8 @@ gem 'cancancan', '~> 1.7'
 
 gem 'rolify'
 
+gem 'figaro'
+
 group :development do
   gem "better_errors"
 end

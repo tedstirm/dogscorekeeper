@@ -3,6 +3,8 @@ rvm:
   - 2.0.0
 env:
   RAILS_ENV=test 
+  RAILS_SECRET_TOKEN="$(bundle exec rake secret)"
+  DEVISE_SECRET_TOKEN="$(bundle exec rake secret)"
 before_script:
   - bundle exec rake db:test:prepare
   
