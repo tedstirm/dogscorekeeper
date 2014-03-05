@@ -2,14 +2,17 @@
 <html>
 <head>
   <title>Dog Score Keeper</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%#= stylesheet_link_tag params[:controller] %>
+  <%#= yield :head %>
+  <%#= yield :action_specific_css if content_for?(:action_specific_css %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <!-- Fixed navbar -->
-<div role="navigation" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+<div id="dsk-nav-bar" role="navigation" class="navbar navbar-inverse navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
@@ -32,30 +35,37 @@
           </ul>
         </li>
       </ul>
+
+
       <ul class="nav navbar-nav navbar-right">
         <li class="<%= 'active' if current_page?(supports_path)%>"><%= link_to 'Help & Support', supports_path %></li>
         <li><a href="../navbar-static-top/"></a></li>
         <% unless user_signed_in? -%>
             <li class="<%= 'active' if current_page?(new_user_session_path)%>"><%= link_to 'Sign in', new_user_session_path %></li>
-        <% end -%>
+        <% else -%>
+            <li class="dropdown">
+              <a data-toggle="dropdown" class="dropdown-toggle" href="#"><%= current_user.email %> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="<%= 'active' if current_page?(user_root_path)%>"><%= link_to 'Dashboard', user_root_path%></li>
+                <li><a href="#">Account</a></li>
+                <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+
+              </ul>
+            </li>
+
+
+        <% end %>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
 </div>
 
-<div class="container">
+<div id="dsk-container" class="container">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-
-  <% if user_signed_in? -%>
-      <%= current_user.id %> |
-      <%= current_user.email %> |
-      <%= link_to 'My info', edit_user_registration_path %> |
-      <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-
-  <% end -%>
-
-  <%= yield %>
+  <div id="content">
+    <%= content_for?(:content) ? yield(:content) : yield %>
+  </div>
 
 </div> <!-- /container -->
 

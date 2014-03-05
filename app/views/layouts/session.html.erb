@@ -1,0 +1,18 @@
+<% content_for :content do %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <br/>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="<%= 'active' if current_page?(user_root_path)%>"><%= link_to 'Dashboard', user_root_path%></li>
+        <li><a href="#">Dogs</a></li>
+      </ul>
+    </div>
+    <div class="col-md-offset-1 col-md-9">
+
+    <%= content_for?(:session_content) ? yield(:session_content) : yield %>
+<% end %>
+<%= render template: "layouts/application" %>
+
+</div>
+</div>

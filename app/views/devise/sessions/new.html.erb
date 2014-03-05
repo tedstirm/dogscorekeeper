@@ -1,7 +1,5 @@
-<%= stylesheet_link_tag params[:users] %>
-
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html:{class:"form-signin"}) do |f| %>
-    <h2 class="form-signin-heading">Sign in</h2>
+    <h2 class="form-signin-heading text-center">Welcome Back!</h2>
 
   <%= f.email_field :email, :autofocus => true, class:'form-control', placeholder:'Email' %>
     <br/>
@@ -14,6 +12,7 @@
   <% end -%>
 
   <div><%= f.submit "Sign in", class:'btn btn-lg btn-primary btn-block'%></div>
-<% end %>
 
 <%= render "devise/shared/links" %>
+<% end %>
+
