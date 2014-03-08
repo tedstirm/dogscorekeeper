@@ -1,7 +1,7 @@
 Dogscorekeeper::Application.routes.draw do
   get "dashboards/index", as: :user_root
-  get "supports/index", as: :supports
-  get "features/index",  as: :features
+  get "supports/index",   as: :supports
+  get "features/index",   as: :features
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

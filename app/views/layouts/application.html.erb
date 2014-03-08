@@ -39,7 +39,6 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li class="<%= 'active' if current_page?(supports_path)%>"><%= link_to 'Help & Support', supports_path %></li>
-        <li><a href="../navbar-static-top/"></a></li>
         <% unless user_signed_in? -%>
             <li class="<%= 'active' if current_page?(new_user_session_path)%>"><%= link_to 'Sign in', new_user_session_path %></li>
         <% else -%>
@@ -52,8 +51,6 @@
 
               </ul>
             </li>
-
-
         <% end %>
       </ul>
     </div><!--/.nav-collapse -->
