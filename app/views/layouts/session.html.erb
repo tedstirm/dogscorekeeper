@@ -6,6 +6,10 @@
       <ul class="nav nav-pills nav-stacked">
         <li class="<%= 'active' if current_page?(user_root_path)%>"><%= link_to 'Dashboard', user_root_path%></li>
         <li><a href="#">Dogs</a></li>
+        <% if current_user.has_role? :admin %>
+          <h4>Admin</h4>
+          <li class="<%= 'active' if current_page?(dog_breed_groups_path)%>"><%= link_to 'Dog Breed Groups', dog_breed_groups_path%></li>
+        <% end %>
       </ul>
     </div>
     <div class="col-md-offset-1 col-md-9">
