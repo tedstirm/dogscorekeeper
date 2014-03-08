@@ -27,7 +27,7 @@ Devise.setup do |config|
   # just :email. You can configure it to use [:username, :subdomain], so for
   # authenticating a user, both parameters are required. Remember that those
   # parameters are used only when authenticating and not when retrieving from
-  # session. If you need permissions, you should implement that in a before filter.
+  # index. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
   # config.authentication_keys = [ :email ]
@@ -73,7 +73,7 @@ Devise.setup do |config|
   # Does not affect registerable.
   # config.paranoid = true
 
-  # By default Devise will store the user in session. You can skip storage for
+  # By default Devise will store the user in index. You can skip storage for
   # particular strategies by setting this option.
   # Notice that if you are skipping storage for all authentication paths, you
   # may want to disable generating routes to Devise's sessions controller by
@@ -144,11 +144,11 @@ Devise.setup do |config|
   # config.email_regexp = /\A[^@]+@[^@]+\z/
 
   # ==> Configuration for :timeoutable
-  # The time you want to timeout the user session without activity. After this
+  # The time you want to timeout the user index without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
   # config.timeout_in = 30.minutes
 
-  # If true, expires auth token on session timeout.
+  # If true, expires auth token on index timeout.
   # config.expire_auth_token_on_timeout = false
 
   # ==> Configuration for :lockable

@@ -12,5 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap.min
+//= require jquery.placeholder.min
 //= require turbolinks
 //= require_tree .
+
+var ready;
+ready = function() {
+
+    console.debug("HERE I AM");
+    $('input, textarea').placeholder();
+
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
