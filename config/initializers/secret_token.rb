@@ -9,6 +9,6 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Dogscorekeeper::Application.config.secret_key_base = Figaro.env.rails_secret_token
+Primekeeper::Application.config.secret_key_base = Figaro.env.rails_secret_token
 
 

@@ -1,4 +1,4 @@
-Dogscorekeeper::Application.routes.draw do
+Primekeeper::Application.routes.draw do
   get "dashboards/index", as: :user_root
   get "supports/index",   as: :supports
   get "features/index",   as: :features

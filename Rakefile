@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Dogscorekeeper::Application.load_tasks
+Primekeeper::Application.load_tasks
