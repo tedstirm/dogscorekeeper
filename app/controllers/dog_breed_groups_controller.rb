@@ -30,8 +30,8 @@ class DogBreedGroupsController < ApplicationController
 
     respond_to do |format|
       if @dog_breed_group.save
-        format.html { redirect_to @dog_breed_group, notice: 'Dog breed group was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @dog_breed_group }
+        format.html { redirect_to dog_breed_groups_url, notice: 'Dog breed group was successfully created.' }
+        format.json { render action: 'index', status: :created, location: @dog_breed_group }
       else
         format.html { render action: 'new' }
         format.json { render json: @dog_breed_group.errors, status: :unprocessable_entity }
@@ -44,7 +44,7 @@ class DogBreedGroupsController < ApplicationController
   def update
     respond_to do |format|
       if @dog_breed_group.update(dog_breed_group_params)
-        format.html { redirect_to @dog_breed_group, notice: 'Dog breed group was successfully updated.' }
+        format.html { redirect_to dog_breed_groups_url, notice: 'Dog breed group was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

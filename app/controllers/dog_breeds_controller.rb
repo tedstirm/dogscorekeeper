@@ -1,4 +1,5 @@
 class DogBreedsController < ApplicationController
+  #layout 'session', only:[:index]
   layout 'session'
   load_and_authorize_resource
   before_action :set_dog_breed, only: [:show, :edit, :update, :destroy]
@@ -30,8 +31,8 @@ class DogBreedsController < ApplicationController
 
     respond_to do |format|
       if @dog_breed.save
-        format.html { redirect_to @dog_breed, notice: 'Dog breed was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @dog_breed }
+        format.html { redirect_to dog_breeds_url, notice: 'Dog breed was successfully created.' }
+        format.json { render action: 'index', status: :created, location: @dog_breed }
       else
         format.html { render action: 'new' }
         format.json { render json: @dog_breed.errors, status: :unprocessable_entity }
@@ -44,7 +45,7 @@ class DogBreedsController < ApplicationController
   def update
     respond_to do |format|
       if @dog_breed.update(dog_breed_params)
-        format.html { redirect_to @dog_breed, notice: 'Dog breed was successfully updated.' }
+        format.html { redirect_to dog_breeds_url, notice: 'Dog breed was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

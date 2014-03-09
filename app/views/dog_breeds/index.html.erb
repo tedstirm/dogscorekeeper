@@ -9,7 +9,6 @@
 
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
-
       <th>Dog Breed Group</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
 
@@ -20,9 +19,8 @@
     <% @dog_breeds.each do |dog_breed| %>
       <tr>
         <td><%= dog_breed.id %></td>
-        <td><%= dog_breed.name %></td>
+        <td><%= link_to dog_breed.name, dog_breed_path(dog_breed) %></td>
         <td><%= dog_breed.dog_breed_group.name %></td>
-
         <td><%= link_to 'Edit', edit_dog_breed_path(dog_breed) %>
         <%= link_to 'Destroy', dog_breed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -32,4 +30,6 @@
 
 <br>
 
-<%= link_to 'New Dog breed', new_dog_breed_path %>
+<%= link_to t('.new', :default => [:'helpers.links.new', 'New %{model}'],
+                        :model => model_class.model_name.human.titleize), new_dog_breed_path,
+            :class => 'btn btn-success' %>

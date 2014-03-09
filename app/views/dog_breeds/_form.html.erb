@@ -11,15 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class => 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :dog_breed_group_id %><br>
-    <%= f.text_field :dog_breed_group_id %>
+    <%= f.collection_select( :dog_breed_group_id , DogBreedGroup.all, :id, :name,
+                            {prompt: "Select Dog Breed"}, :class=>'form-control') %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group">
+    <%= f.submit :class => 'btn btn-primary' %> or
+    <%= link_to 'Cancel', dog_breeds_path %>
   </div>
+
 <% end %>

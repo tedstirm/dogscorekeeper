@@ -8,8 +8,8 @@
         <li><a href="#">Dogs</a></li>
         <% if current_user.has_role? :admin %>
           <h4>Admin</h4>
-          <li class="<%= 'active' if current_page?(dog_breed_groups_path)%>"><%= link_to 'Dog Breed Groups', dog_breed_groups_path%></li>
-          <li class="<%= 'active' if current_page?(dog_breeds_path)%>"><%= link_to 'Dog Breeds', dog_breeds_path%></li>
+          <li class="<%= is_active?('dog_breed_groups') %>"><%= link_to 'Dog Breed Groups', dog_breed_groups_path%></li>
+          <li class="<%= is_active?('dog_breeds') %>"><%= link_to 'Dog Breeds', dog_breeds_path%></li>
         <% end %>
       </ul>
     </div>

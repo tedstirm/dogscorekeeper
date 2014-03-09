@@ -21,7 +21,28 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+      models:
+        dog_breed_group:
+          one: 'Dog Breed Group'
+          many: 'Dog Breed Groups'
+        dog_breed:
+          one: 'Dog Breed'
+          many: 'Dog Breeds'
+
   helpers:
+    submit:
+      create: "Create %{model}"
+      update: "Update %{model}"
     actions: "Actions"
+
+    html_tooltips:
+      new: "New %{model}"
+      edit: "Edit %{model}"
+      delete: "Delete %{model}"
+      create: "Create %{model}"
+      update: "Update %{model}"
+
     links:
-     edit: "Edit"
+      new: "New %{model}"
+      edit: "Edit"
