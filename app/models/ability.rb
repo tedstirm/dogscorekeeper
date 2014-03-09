@@ -9,8 +9,10 @@ class Ability
     end
 =end
     user ||= User.new
-    if user.has_role? :basic
+    if user.has_role? :admin
       can :manage, :all
+    else
+      can :manage, :dashboard
     end
 
     # Define abilities for the passed in user here. For example:

@@ -1,5 +1,7 @@
 Primekeeper::Application.routes.draw do
 
+  resources :dog_breeds
+
   resources :dog_breed_groups
   get "dashboards/index", as: :user_root
   get "supports/index",   as: :supports

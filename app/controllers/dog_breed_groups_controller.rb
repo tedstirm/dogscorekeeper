@@ -1,5 +1,6 @@
 class DogBreedGroupsController < ApplicationController
   layout 'session'
+  load_and_authorize_resource
   before_action :set_dog_breed_group, only: [:show, :edit, :update, :destroy]
 
   # GET /dog_breed_groups
