@@ -2,7 +2,8 @@ require 'test_helper'
 
 class DogBreedGroupsControllerTest < ActionController::TestCase
   setup do
-    @dog_breed_group = dog_breed_groups(:one)
+    @dog_breed_group = FactoryGirl.create(:dog_breed_group)
+    sign_in FactoryGirl.create(:admin)
   end
 
   test "should get index" do
@@ -21,7 +22,7 @@ class DogBreedGroupsControllerTest < ActionController::TestCase
       post :create, dog_breed_group: { name: @dog_breed_group.name }
     end
 
-    assert_redirected_to dog_breed_group_path(assigns(:dog_breed_group))
+    assert_redirected_to dog_breed_groups_path
   end
 
   test "should show dog_breed_group" do
@@ -36,7 +37,8 @@ class DogBreedGroupsControllerTest < ActionController::TestCase
 
   test "should update dog_breed_group" do
     patch :update, id: @dog_breed_group, dog_breed_group: { name: @dog_breed_group.name }
-    assert_redirected_to dog_breed_group_path(assigns(:dog_breed_group))
+    #assert_redirected_to dog_breed_group_path(assigns(:dog_breed_group))
+    assert_redirected_to dog_breed_groups_path
   end
 
   test "should destroy dog_breed_group" do

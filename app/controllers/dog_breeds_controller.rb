@@ -7,7 +7,7 @@ class DogBreedsController < ApplicationController
   # GET /dog_breeds
   # GET /dog_breeds.json
   def index
-    @dog_breeds = DogBreed.all
+    @dog_breeds = DogBreed.all.includes(:dog_breed_group)
   end
 
   # GET /dog_breeds/1

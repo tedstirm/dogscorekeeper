@@ -42,13 +42,20 @@ gem 'figaro'
 
 gem 'twitter-bootstrap-rails'
 
+gem 'rack-mini-profiler'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
 end
 
-gem 'rack-mini-profiler'
+group :test do
+  gem 'factory_girl'
+end
 
+group :development,:test do
+  gem 'factory_girl_rails'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
