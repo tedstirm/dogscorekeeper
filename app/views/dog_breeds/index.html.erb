@@ -20,9 +20,11 @@
       <tr>
         <td><%= dog_breed.id %></td>
         <td><%= link_to dog_breed.name, dog_breed_path(dog_breed) %></td>
-        <td><%= dog_breed.dog_breed_group != nil ? dog_breed.dog_breed_group.name : "No Group"%></td>
-        <td><%= link_to 'Edit', edit_dog_breed_path(dog_breed) %>
-        <%= link_to 'Destroy', dog_breed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= dog_breed.dog_breed_group.name %></td>
+        <td>
+          <%= edit_item_btn(model_class, edit_dog_breed_path(dog_breed)) %>
+          <%= delete_item_btn(model_class, dog_breed_path(dog_breed)) %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -30,6 +32,4 @@
 
 <br>
 
-<%= link_to t('.new', :default => [:'helpers.links.new', 'New %{model}'],
-                        :model => model_class.model_name.human.titleize), new_dog_breed_path,
-            :class => 'btn btn-success' %>
+<%= add_item_btn(model_class, new_dog_breed_path) %>

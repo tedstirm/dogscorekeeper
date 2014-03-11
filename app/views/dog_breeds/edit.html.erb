@@ -1,6 +1,6 @@
-<h1>Editing dog_breed</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @dog_breed %> |
-<%= link_to 'Back', dog_breeds_path %>
+<%- model_class = DogBreed -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'],
+           :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>

@@ -24,11 +24,13 @@ class DogBreedsControllerTest < ActionController::TestCase
 
     assert_redirected_to dog_breeds_path
   end
+=begin
 
   test "should show dog_breed" do
     get :show, id: @dog_breed
     assert_response :success
   end
+=end
 
   test "should get edit" do
     get :edit, id: @dog_breed

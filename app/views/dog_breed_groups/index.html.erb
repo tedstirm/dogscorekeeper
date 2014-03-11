@@ -17,24 +17,12 @@
         <td><%= link_to dog_breed_group.name, dog_breed_group_path(dog_breed_group) %></td>
 
         <td>
-          <%= link_to 'Edit', edit_dog_breed_group_path(dog_breed_group),
-                      class: 'btn btn-primary btn-mini',
-                      title: t('.edit', :default => [:'helpers.html_tooltips.edit', 'Edit %{model}'],
-                                  :model => model_class.model_name.human.titleize),
-                      rel: 'tooltip' %>
-
-          <%= link_to 'Delete',
-                      dog_breed_group_path(dog_breed_group),
-                      method: :delete,
-                      data: { confirm:  t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      class: 'btn btn-mini btn-danger',
-                      title: t('.delete', :default => [:'helpers.html_tooltips.delete', 'Delete %{model}'],
-                       :model => model_class.model_name.human.titleize),
-                      rel: 'tooltip'%>
+          <%= edit_item_btn(model_class, edit_dog_breed_group_path(dog_breed_group)) %>
+          <%= delete_item_btn(model_class, dog_breed_group_path(dog_breed_group)) %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= add_item(model_class) %>
+<%= add_item_btn(model_class, new_dog_breed_group_path) %>
