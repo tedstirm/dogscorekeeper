@@ -3,6 +3,9 @@ require 'test_helper'
 class DogBreedsControllerTest < ActionController::TestCase
   setup do
     @dog_breed = FactoryGirl.create(:dog_breed)
+    @dog_breed_no_group = FactoryGirl.create(:dog_breed)
+    @dog_breed_no_group.dog_breed_group = nil
+    @dog_breed_no_group.save
     sign_in FactoryGirl.create(:admin)
   end
 
