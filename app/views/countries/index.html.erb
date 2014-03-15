@@ -1,0 +1,33 @@
+<%- model_class = Country -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+
+    <th><%= model_class.human_attribute_name(:id) %></th>
+    <th><%= model_class.human_attribute_name(:name) %></th>
+    <th><%=t '.actions', :default => t("helpers.actions") %></th>
+
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @countries.each do |country| %>
+    <tr>
+      <td><%= country.id %></td>
+      <td><%= link_to country.name, country_path(country) %></td>
+      <td>
+        <%= edit_item_btn(model_class, edit_country_path(country)) %>
+        <%= delete_item_btn(model_class, country_path(country)) %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= add_item_btn(model_class, new_country_path) %>

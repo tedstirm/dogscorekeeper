@@ -1,5 +1,7 @@
 Primekeeper::Application.routes.draw do
 
+  resources :countries, except: :show
+
   resources :dog_breeds, except: :show
 
   resources :dog_breed_groups, except: :show
