@@ -1,7 +1,7 @@
 <%= form_for(@dog_breed) do |f| %>
   <% if @dog_breed.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@dog_breed.errors.count, "error") %> prohibited this dog_breed from being saved:</h2>
+      <h2><%= pluralize(@dog_breed.errors.count, "error") %> prohibited this Dog Breed from being saved:</h2>
 
       <ul>
       <% @dog_breed.errors.full_messages.each do |msg| %>
@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :name %><br>
+    <%= f.label :name , :class=> 'control-label'%><br>
     <%= f.text_field :name, :class => 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :dog_breed_group_id %><br>
+    <%= f.label :dog_breed_group_id , :class=> 'control-label'%><br>
     <%= f.collection_select( :dog_breed_group_id , DogBreedGroup.all, :id, :name,
                             {prompt: "Select Dog Breed"}, :class=>'form-control') %>
   </div>
