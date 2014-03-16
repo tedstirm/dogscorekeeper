@@ -26,3 +26,7 @@ DogBreedGroup.create(name: 'Foundation Stock Group')
 
 # Dog Breeds
 DogBreed.create(name: 'Boxer', dog_breed_group: working_group)
+
+# Countries
+Country.create(name: "United States")
+Country.create(name: "Canada")
