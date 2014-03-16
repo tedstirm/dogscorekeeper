@@ -40,7 +40,7 @@ gem 'rolify'
 
 gem 'figaro'
 
-gem 'twitter-bootstrap-rails'
+#gem 'twitter-bootstrap-rails'
 
 gem 'rack-mini-profiler'
 
@@ -51,6 +51,8 @@ end
 
 group :test do
   gem 'factory_girl'
+  gem "minitest"
+  gem "minitest-reporters", '>= 0.5.0'
 end
 
 group :development,:test do
