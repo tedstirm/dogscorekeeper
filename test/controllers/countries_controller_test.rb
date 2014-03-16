@@ -25,10 +25,12 @@ class CountriesControllerTest < ActionController::TestCase
     assert_redirected_to countries_path
   end
 
+=begin
   test "should show country" do
     get :show, id: @country
     assert_response :success
   end
+=end
 
   test "should get edit" do
     get :edit, id: @country
