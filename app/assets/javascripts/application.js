@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap.min
 //= require jquery.placeholder.min
+//= require dataTables/jquery.dataTables
+//= require dataTables/jquery.dataTables.bootstrap3
 //= require turbolinks
 //= require_tree .
 
@@ -22,7 +24,8 @@ ready = function() {
 
     console.debug("HERE I AM");
     $('input, textarea').placeholder();
-
+    // See: http://railscasts.com/episodes/340-datatables?view=asciicast
+    $('.table-datatable').dataTable();
 };
 
 $(document).ready(ready);

@@ -1,0 +1,35 @@
+<%- model_class = State -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:alpha2) %></th>
+      <th><%= model_class.human_attribute_name(:country) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @states.each do |state| %>
+      <tr>
+        <td><%= state.id %></td>
+        <td><%= state.name %></td>
+        <td><%= state.alpha2 %></td>
+        <td><%= state.country == nil ? "N/A" : state.country.name %></td>
+        <td>
+          <%= edit_item_btn(model_class, edit_state_path(state)) %>
+          <%= delete_item_btn(model_class, state_path(state)) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= add_item_btn(model_class, new_state_path) %>

@@ -1,6 +1,30 @@
+@import 'bootstrap';
+
 #notice {
   color: green;
 }
+
+
+/* Rails scaffold style compatibility */
+#error_explanation {
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 15px;
+    margin: -7px;
+    margin-bottom: 0px;
+  }
+  @extend .alert;
+  @extend .alert-danger;
+}
+
+.field_with_errors {
+  @extend .has-error;
+  display: inline;
+}
+
+/*
 
 .field_with_errors {
   padding: 2px;
@@ -26,3 +50,4 @@
     color: #fff;
   }
 }
+*/

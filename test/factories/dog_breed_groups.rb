@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :dog_breed_group do
-    name "test_dog_breed_group"
+    sequence(:name) { |n| "dog_breed_name_group_#{n}" }
   end
 end

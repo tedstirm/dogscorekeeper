@@ -1,8 +1,10 @@
 Primekeeper::Application.routes.draw do
 
+  resources :states, except: :show
+  resources :countries, except: :show
   resources :dog_breeds, except: :show
-
   resources :dog_breed_groups, except: :show
+
   get "dashboards/index", as: :user_root
   get "supports/index",   as: :supports
   get "features/index",   as: :features

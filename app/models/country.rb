@@ -1,3 +1,3 @@
-class DogBreedGroup < ActiveRecord::Base
+class Country < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
 end

@@ -3,6 +3,7 @@ require 'test_helper'
 class DogBreedGroupsControllerTest < ActionController::TestCase
   setup do
     @dog_breed_group = FactoryGirl.create(:dog_breed_group)
+    @new_dog_breed_group = FactoryGirl.build(:dog_breed_group, name: "new_dbg")
     sign_in FactoryGirl.create(:admin)
   end
 
@@ -19,7 +20,7 @@ class DogBreedGroupsControllerTest < ActionController::TestCase
 
   test "should create dog_breed_group" do
     assert_difference('DogBreedGroup.count') do
-      post :create, dog_breed_group: { name: @dog_breed_group.name }
+      post :create, dog_breed_group: { name: @new_dog_breed_group.name }
     end
 
     assert_redirected_to dog_breed_groups_path
