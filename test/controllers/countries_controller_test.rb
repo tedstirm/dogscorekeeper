@@ -3,6 +3,7 @@ require 'test_helper'
 class CountriesControllerTest < ActionController::TestCase
   setup do
     @country = FactoryGirl.create(:country)
+    @new_country = FactoryGirl.build(:country, name: "new_country")
     sign_in FactoryGirl.create(:admin)
   end
 
@@ -19,7 +20,7 @@ class CountriesControllerTest < ActionController::TestCase
 
   test "should create country" do
     assert_difference('Country.count') do
-      post :create, country: { name: @country.name }
+      post :create, country: { name: @new_country.name }
     end
 
     assert_redirected_to countries_path
