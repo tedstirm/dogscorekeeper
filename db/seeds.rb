@@ -33,5 +33,8 @@ for i in 0..100
 end
 
 # Countries
-Country.create(name: "United States")
+usa_country = Country.create(name: "United States")
 Country.create(name: "Canada")
+
+#States
+State.create(name: "Alabama", alpha2: "AL", country_id: usa_country.id)

@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :country do
-    name "test_country"
+    sequence(:name) { |n| "country_#{n}" }
   end
 end

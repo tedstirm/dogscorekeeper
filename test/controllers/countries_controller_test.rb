@@ -3,7 +3,7 @@ require 'test_helper'
 class CountriesControllerTest < ActionController::TestCase
   setup do
     @country = FactoryGirl.create(:country)
-    @new_country = FactoryGirl.build(:country, name: "new_country")
+    @new_country = FactoryGirl.build(:country)
     sign_in FactoryGirl.create(:admin)
   end
 

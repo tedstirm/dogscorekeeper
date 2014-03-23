@@ -1,6 +1,6 @@
 Primekeeper::Application.routes.draw do
 
-  resources :states, expect: :show
+  resources :states, except: :show
   resources :countries, except: :show
   resources :dog_breeds, except: :show
   resources :dog_breed_groups, except: :show

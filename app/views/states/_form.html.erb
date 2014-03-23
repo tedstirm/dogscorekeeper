@@ -1,0 +1,34 @@
+<%= form_for(@state) do |f| %>
+  <% if @state.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@state.errors.count, "error") %> prohibited this state from being saved:</h2>
+
+      <ul>
+      <% @state.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, :class=> 'control-label'%>
+    <%= f.text_field :name, :class => 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :alpha2, :class=> 'control-label' %>
+    <%= f.text_field :alpha2, :class=>'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :country_id , :class=> 'control-label'%><br>
+    <%= f.collection_select( :country_id, Country.all, :id, :name,
+                             {prompt: "Select Country"}, :class=>'form-control') %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit :class => 'btn btn-primary' %> or
+    <%= link_to 'Cancel', states_path %>
+  </div>
+<% end %>
