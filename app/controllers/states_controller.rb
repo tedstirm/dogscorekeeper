@@ -7,7 +7,16 @@ class StatesController < ApplicationController
   # GET /states
   # GET /states.json
   def index
-    @states = State.all
+    if(params.has_key?(:country_id))
+      @states = State.where(country_id: params[:country_id]).all
+    else
+      @states = State.all
+    end
+  end
+
+
+  def find_by_country
+    @states = State.where(country_id: params[:country_id])
   end
 
   # GET /states/1

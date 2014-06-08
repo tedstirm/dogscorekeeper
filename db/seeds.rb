@@ -28,13 +28,16 @@ DogBreedGroup.create(name: 'Foundation Stock Group')
 DogBreed.create(name: 'Boxer', dog_breed_group: working_group)
 
 # Data tables test
+=begin
 for i in 0..100
   DogBreed.create(name: "DataTable_Test #{i}", dog_breed_group: working_group)
 end
+=end
 
 # Countries
 usa_country = Country.create(name: "United States")
-Country.create(name: "Canada")
+can_country = Country.create(name: "Canada")
 
 #States
 State.create(name: "Alabama", alpha2: "AL", country_id: usa_country.id)
+State.create(name: "Ontario", alpha2: "ON", country_id: can_country.id)

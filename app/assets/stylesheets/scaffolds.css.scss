@@ -4,6 +4,14 @@
   color: green;
 }
 
+#field{
+  @extend .form-group;
+}
+
+
+#actions{
+  @extend .form-group;
+}
 
 /* Rails scaffold style compatibility */
 #error_explanation {
