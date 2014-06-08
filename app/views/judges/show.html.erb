@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @judge.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @judge.last_name %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @judge.street %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @judge.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @judge.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @judge.country %>
+</p>
+
+<p>
+  <strong>Judge:</strong>
+  <%= @judge.number %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @judge.zip %>
+</p>
+
+<%= link_to 'Edit', edit_judge_path(@judge) %> |
+<%= link_to 'Back', judges_path %>

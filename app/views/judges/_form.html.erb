@@ -1,0 +1,74 @@
+<%= form_for(@judge) do |f| %>
+  <% if @judge.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@judge.errors.count, "error") %> prohibited this judge from being saved:</h2>
+
+      <ul>
+      <% @judge.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="form-group">
+    <%= f.label :first_name, :class=> 'control-label' %>
+    <%= f.text_field :first_name, :class=>'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :last_name, :class=> 'control-label' %>
+    <%= f.text_field :last_name, :class=>'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :number, :class=> 'control-label' %>
+    <%= f.text_field :number, :class=>'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <div class="radio">
+      <label>
+        <%= f.radio_button :country_id, @countries.first.id, :checked => true, :id =>"judge_country_id_united_states"%>
+        <%= @countries.first.name %>
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <%= f.radio_button :country_id,  @countries[1].id, :id =>"judge_country_id_canada"%>
+        <%= @countries[1].name %>
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :street,:class=> 'control-label' %>
+    <%= f.text_field :street, :class=>'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :city, :class=> 'control-label' %>
+    <%= f.text_field :city, :class=>'form-control' %>
+  </div>
+
+  <div id="usa-states" class="form-group">
+    <%= f.label :state_id , :class=> 'control-label'%><br>
+    <%= f.collection_select( :state_id , @states.where(country_id: @countries[0].id), :id, :name,
+                             {prompt: "Select State"}, :class=>'form-control') %>
+  </div>
+
+  <div id="can-states" class="form-group" style = "display: none;">
+    <%= f.label :state_id , :class=> 'control-label'%><br>
+    <%= f.collection_select( :state_id , @states.where(country_id: @countries[1].id), :id, :name,
+                             {prompt: "Select State"}, :class=>'form-control') %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :zip, :class=> 'control-label' %>
+    <%= f.text_field :zip, :class=>'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit :class => 'btn btn-primary' %> or
+    <%= link_to 'Cancel', judges_path %>
+  </div>
+<% end %>
